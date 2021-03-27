@@ -6,11 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Past_Flight_Activity">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/glPastFlightGrid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnExportPastFlight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <Button
+        android:id="@+id/btnExportPastFlight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Past Flight Page"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="87dp" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="34dp"
+        android:text="Export Log (cvs) File"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/glPastFlightGrid" />
 </androidx.constraintlayout.widget.ConstraintLayout>

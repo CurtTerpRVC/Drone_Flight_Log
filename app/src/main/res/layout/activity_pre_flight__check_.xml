@@ -6,11 +6,129 @@
     android:layout_height="match_parent"
     tools:context=".PreFlight_Check_Activity">
 
+    <CheckBox
+        android:id="@+id/chAppWorking"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="31dp"
+        android:text="App is Working "
+        app:layout_constraintBottom_toTopOf="@+id/lblLowLevelFlightCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckControllerBattery" />
+
+    <CheckBox
+        android:id="@+id/ckGimbalCheck"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Gimbal Cover Removed"
+        app:layout_constraintBottom_toTopOf="@+id/ckProp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPreflightChecks" />
+
+    <CheckBox
+        android:id="@+id/ckDroneBattery"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Drone Battery Check"
+        app:layout_constraintBottom_toTopOf="@+id/ckControllerBattery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckProp" />
+
+    <CheckBox
+        android:id="@+id/ckControllerBattery"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Controller Battery"
+        app:layout_constraintBottom_toTopOf="@+id/chAppWorking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckDroneBattery" />
+
+    <CheckBox
+        android:id="@+id/ckProp"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Propellers Secure"
+        app:layout_constraintBottom_toTopOf="@+id/ckDroneBattery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckGimbalCheck" />
+
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:id="@+id/lblPreflightChecks"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="PreFlight Page"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="76dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:text="Preflight Checks"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ckGimbalCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblLowLevelFlightCheck"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="Low Level Flight Checks"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ckUpDown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chAppWorking" />
+
+    <CheckBox
+        android:id="@+id/ckLeftRight"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Left/Right"
+        app:layout_constraintBottom_toTopOf="@+id/ckYawLeftRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckUpDown" />
+
+    <CheckBox
+        android:id="@+id/ckUpDown"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Up/Down"
+        app:layout_constraintBottom_toTopOf="@+id/ckLeftRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLowLevelFlightCheck" />
+
+    <CheckBox
+        android:id="@+id/ckYawLeftRight"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:text="Yaw Left/Right"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckLeftRight" />
+
+    <CheckBox
+        android:id="@+id/checkBox9"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="268dp"
+        android:text="CheckBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckYawLeftRight" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
