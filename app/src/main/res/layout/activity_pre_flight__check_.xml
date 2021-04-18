@@ -7,7 +7,7 @@
     tools:context=".PreFlight_Check_Activity">
 
     <CheckBox
-        android:id="@+id/chAppWorking"
+        android:id="@+id/ckAppWorking"
         android:layout_width="181dp"
         android:layout_height="0dp"
         android:layout_marginBottom="31dp"
@@ -42,7 +42,7 @@
         android:layout_width="181dp"
         android:layout_height="0dp"
         android:text="Controller Battery"
-        app:layout_constraintBottom_toTopOf="@+id/chAppWorking"
+        app:layout_constraintBottom_toTopOf="@+id/ckAppWorking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ckDroneBattery" />
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ckUpDown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chAppWorking" />
+        app:layout_constraintTop_toBottomOf="@+id/ckAppWorking" />
 
     <CheckBox
         android:id="@+id/ckLeftRight"
@@ -115,20 +115,31 @@
         android:layout_width="181dp"
         android:layout_height="0dp"
         android:text="Yaw Left/Right"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox9"
+        app:layout_constraintBottom_toTopOf="@+id/ckGimbalMovement"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ckLeftRight" />
 
     <CheckBox
-        android:id="@+id/checkBox9"
+        android:id="@+id/ckGimbalMovement"
         android:layout_width="181dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="268dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp"
+        android:text="Gimbal Movement"
+        app:layout_constraintBottom_toTopOf="@+id/btnSavePreflight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ckYawLeftRight" />
+
+    <Button
+        android:id="@+id/btnSavePreflight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="156dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckGimbalMovement" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

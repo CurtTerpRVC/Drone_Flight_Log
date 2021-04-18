@@ -35,38 +35,26 @@ class MainActivity : AppCompatActivity() {
 
         btnCurrentFlight.setOnClickListener {
             val intent = Intent(this, Current_Flight_Activity::class.java)
-            //Go to Preferences activity
+            //Go to Flight activity
             startActivity(intent)
 
         }
 
         btnPreflight.setOnClickListener {
             val intent = Intent(this, PreFlight_Check_Activity::class.java)
-            //Go to Preferences activity
+            //Go to Preflight activity
             startActivity(intent)
 
         }
 
         btnPastFlight.setOnClickListener {
             val intent = Intent(this, Past_Flight_Activity::class.java)
-            //Go to Preferences activity
+            //Go to Past flight activity
             startActivity(intent)
 
         }
 
 
     }// end of Oncreate
-
-    /*
-    fun GotoPage(page: String){
-        val intent = Intent(this, page::class.java)
-        //putExtra sets value to name SendStuff (Could be called whatever you want
-        intent.putExtra("SendStuff", "")
-
-        //Go to second activity
-        startActivity(intent)
-
-    }
-     */
 
 }// end of Main Activity
