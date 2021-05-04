@@ -17,6 +17,7 @@ import java.util.*
 
 class Current_Flight_Activity : AppCompatActivity() {
 
+    var droneFlightLogDB = DFL_DB(this, null, DATABASE_NAME, DATABASE_VERSION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +37,10 @@ class Current_Flight_Activity : AppCompatActivity() {
 
         val spDrone = findViewById<Spinner>(R.id.spDrone)
 
+        //TODO Build a shared preference here for the user to save different drones
+
         // Spinner load code goes here. Fake information is here as a placeholder
-        var spinList = arrayOf("Mavic Pro 2", "Autel Pro 2", "Parrot", "Tello", "Other")
+        var spinList = arrayOf("Mavic", "Autel", "Parrot", "Tello", "Other")
 
         val adapter1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinList)
         android.R.layout.simple_spinner_item
@@ -68,13 +71,22 @@ class Current_Flight_Activity : AppCompatActivity() {
         }
 
         btnLocation.setOnClickListener {
+            //Todo - Need to find code to get GPS location here, or just have a label/text field
             Toast.makeText(this, "Location code will go here", Toast.LENGTH_LONG).show()
         }
 
         btnSave.setOnClickListener {
-            Toast.makeText(this, "this is where the save to database will be", Toast.LENGTH_LONG).show()
-            txtLocation.text
-            txtFlightNotes.text
+            var dtDate = dtDate.text.toString()
+            var tmStartTime = tmStartTime.text.toString()
+            var tmEndTime = tmEndTime.text.toString()
+            var txtLocation = txtLocation.text.toString()
+            var txtFlightNotes = txtFlightNotes.text.toString()
+            var drone = spDrone.selectedItem.toString()
+
+            droneFlightLogDB.updateRowFLIGHTLOG(dtDate, tmStartTime, tmEndTime, txtLocation, txtFlightNotes, drone)
+
+            Toast.makeText(this,"Date $dtDate, Start Time $tmStartTime, End Time $tmEndTime, Location $txtLocation, Flight Notes $txtFlightNotes, Drone $spDrone ",Toast.LENGTH_LONG).show()
+
         }
 
         // Hide Keyboard
