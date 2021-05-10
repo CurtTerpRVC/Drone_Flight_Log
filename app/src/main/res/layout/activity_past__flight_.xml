@@ -6,29 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Past_Flight_Activity">
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/glPastFlightGrid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="33dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnExportPastFlight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.gridlayout.widget.GridLayout>
-
     <Button
         android:id="@+id/btnExportPastFlight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="16dp"
         android:text="Export Log (cvs) File"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rvDFLData"
+        app:layout_constraintTop_toBottomOf="@+id/rvDFLData" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDFLData"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnExportPastFlight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/glPastFlightGrid" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/cardview_dfldata" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

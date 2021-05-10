@@ -12,12 +12,19 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import org.jetbrains.annotations.NotNull
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileReader
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Current_Flight_Activity : AppCompatActivity() {
 
     var droneFlightLogDB = DFL_DB(this, null, DATABASE_NAME, DATABASE_VERSION)
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,18 +33,16 @@ class Current_Flight_Activity : AppCompatActivity() {
         val btnDate = findViewById<Button>(R.id.btnDate)
         val btnStartTime = findViewById<Button>(R.id.btnStartTime)
         val btnEndTime = findViewById<Button>(R.id.btnEndTime)
-        val btnLocation = findViewById<Button>(R.id.btnLocation)
         val btnSave = findViewById<Button>(R.id.btnSaveData)
 
         val dtDate = findViewById<EditText>(R.id.dtFlightDate)
         val tmStartTime = findViewById<EditText>(R.id.tmFlightStart)
         val tmEndTime = findViewById<EditText>(R.id.tmFlightEnd)
-        val txtLocation = findViewById<TextView>(R.id.txtlocation)
+        val txtLocation = findViewById<EditText>(R.id.txtlocation)
         val txtFlightNotes = findViewById<EditText>(R.id.txtFlightNotes)
 
         val spDrone = findViewById<Spinner>(R.id.spDrone)
 
-        //TODO Build a shared preference here for the user to save different drones
 
         // Spinner load code goes here. Fake information is here as a placeholder
         var spinList = arrayOf("Mavic", "Autel", "Parrot", "Tello", "Other")
@@ -70,12 +75,8 @@ class Current_Flight_Activity : AppCompatActivity() {
             tmEndTime.setText(currentTime)
         }
 
-        btnLocation.setOnClickListener {
-            //Todo - Need to find code to get GPS location here, or just have a label/text field
-            Toast.makeText(this, "Location code will go here", Toast.LENGTH_LONG).show()
-        }
-
         btnSave.setOnClickListener {
+
             var dtDate = dtDate.text.toString()
             var tmStartTime = tmStartTime.text.toString()
             var tmEndTime = tmEndTime.text.toString()
@@ -83,11 +84,15 @@ class Current_Flight_Activity : AppCompatActivity() {
             var txtFlightNotes = txtFlightNotes.text.toString()
             var drone = spDrone.selectedItem.toString()
 
-            droneFlightLogDB.updateRowFLIGHTLOG(dtDate, tmStartTime, tmEndTime, txtLocation, txtFlightNotes, drone)
+            // this code keeps from erasing existing saves. It only looks for the end time
+            if(tmEndTime != ""){
+                droneFlightLogDB.updateRowFLIGHTLOG(dtDate, tmStartTime, tmEndTime, txtLocation, txtFlightNotes, drone)
+                Toast.makeText(this, "Data has been saved",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this,"Please enter a flight end time before saving",Toast.LENGTH_LONG).show()
+            }
 
-            Toast.makeText(this,"Date $dtDate, Start Time $tmStartTime, End Time $tmEndTime, Location $txtLocation, Flight Notes $txtFlightNotes, Drone $spDrone ",Toast.LENGTH_LONG).show()
-
-        }
+        }//end of onclick listener
 
         // Hide Keyboard
         findViewById<View>(android.R.id.content).setOnTouchListener { _, event ->

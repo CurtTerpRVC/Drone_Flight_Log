@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 
+
 class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_NAME: String?, DATABASE_VERSION: Int) :
             SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION){
 
@@ -33,7 +34,8 @@ class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_
                 "$COLUMN_ckProp TEXT, " +
                 "$COLUMN_ckLeftRight TEXT, " +
                 "$COLUMN_ckUpDown TEXT, " +
-                "$COLUMN_ckGimbalMovement TEXT);"
+                "$COLUMN_ckYawLeftRight TEXT, " +
+                "$COLUMN_ckGimbalMovement TEXT) ;"
 
         db?.execSQL(createQuery)
     }
@@ -44,8 +46,14 @@ class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_
     }
 
     //Update Rows for Preflight
-    fun insertRowPREFLIGHT(ckAppWorking:String, ckGimbalCheck: String, ckDroneBattery:String, chControllerBattery: String, ckProp:String, ckLeftRight:String, ckUpDown:String, ckGimbalMovement:String) {
+    fun insertRowPREFLIGHT(dtDate: String, tmStartTime:String, tmEndTime: String, txtLocation:String, txtFlightNotes:String, spDrone:String, ckAppWorking:String, ckGimbalCheck: String, ckDroneBattery:String, chControllerBattery: String, ckProp:String, ckLeftRight:String, ckUpDown:String, ckYawLeftRight: String, ckGimbalMovement:String) {
         val values = ContentValues()
+        values.put(COLUMN_dtDate,dtDate)
+        values.put(COLUMN_tmStartTime, tmStartTime)
+        values.put(COLUMN_tmEndTime, tmEndTime)
+        values.put(COLUMN_txtLocation, txtLocation)
+        values.put(COLUMN_txtFlightNotes, txtFlightNotes)
+        values.put(COLUMN_spDrone, spDrone)
         values.put(COLUMN_ckAppWorking, ckAppWorking)
         values.put(COLUMN_ckGimbalCheck, ckGimbalCheck)
         values.put(COLUMN_ckDroneBattery, ckDroneBattery)
@@ -53,6 +61,7 @@ class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_
         values.put(COLUMN_ckProp, ckProp)
         values.put(COLUMN_ckLeftRight, ckLeftRight)
         values.put(COLUMN_ckUpDown, ckUpDown)
+        values.put(COLUMN_ckYawLeftRight, ckYawLeftRight)
         values.put(COLUMN_ckGimbalMovement, ckGimbalMovement)
 
         //long rowId = db.insert("table", "nullColumnHack", data);
@@ -84,11 +93,54 @@ class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_
 
     fun getAllRow(): Cursor? {
         val db = this.readableDatabase
-        return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        val query = db.rawQuery("SELECT * FROM $TABLE_NAME ORDER BY ID", null)
+        return query
+        db.close()
     }
 
+    fun getLastRow(lastRowIndex: Int): Cursor? {
+
+        val db = this.readableDatabase
+        val cLastRow = db.rawQuery("SELECT * FROM $TABLE_NAME Where id = $lastRowIndex", null)
+        db.close()
+        return cLastRow
+    }
+
+    fun getLastRowStart(lastRowIndex: Int): String? {
+
+        val db = this.readableDatabase
+        val etartTime = db.rawQuery("SELECT StartTime FROM $TABLE_NAME Where id = $lastRowIndex", null).toString()
+        db.close()
+        return etartTime
+    }
+
+    fun getLastRowEnd(lastRowIndex: Int): String? {
+
+        val db = this.readableDatabase
+        val endTime = db.rawQuery("SELECT EndTime FROM $TABLE_NAME Where id = $lastRowIndex", null).toString()
+        db.close()
+        return endTime
+    }
+
+    fun getLastRowLocation(lastRowIndex: Int): String? {
+
+        val db = this.readableDatabase
+        val location = db.rawQuery("SELECT Location FROM $TABLE_NAME Where id = $lastRowIndex", null).toString()
+        db.close()
+        return location
+    }
+
+    fun getLastRowFlightNotes(lastRowIndex: Int): String? {
+
+        val db = this.readableDatabase
+        val flightNotes = db.rawQuery("SELECT FlightNotes FROM $TABLE_NAME Where id = $lastRowIndex", null).toString()
+        db.close()
+        return flightNotes
+    }
+
+
     companion object {
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION = 8
         const val DATABASE_NAME = "myFlightLog.db"
         const val TABLE_NAME = "flight_data"
 
@@ -106,6 +158,7 @@ class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_
         const val COLUMN_ckProp = "Prop"
         const val COLUMN_ckLeftRight = "LeftRight"
         const val COLUMN_ckUpDown = "UpDown"
+        const val COLUMN_ckYawLeftRight = "YawLeftRight"
         const val COLUMN_ckGimbalMovement = "GimbalMovement"
     }
 

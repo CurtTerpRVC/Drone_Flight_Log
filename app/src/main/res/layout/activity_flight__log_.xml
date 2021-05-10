@@ -10,8 +10,8 @@
         android:id="@+id/btnDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="7dp"
         android:text="Todays Date"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/dtFlightDate"
@@ -25,10 +25,10 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="53dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="52dp"
         android:text="Start Time"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/tmFlightEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEndTime"
         app:layout_constraintEnd_toStartOf="@+id/tmFlightStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnDate" />
@@ -36,16 +36,13 @@
     <Button
         android:id="@+id/btnEndTime"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="38dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="11dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="13dp"
         android:text="End Time"
-        app:layout_constraintBottom_toTopOf="@+id/txtlocation"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tmFlightEnd"
         app:layout_constraintEnd_toStartOf="@+id/tmFlightEnd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartTime" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/dtFlightDate"
@@ -65,7 +62,7 @@
         android:id="@+id/tmFlightStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:inputType="time"
@@ -79,8 +76,8 @@
         android:id="@+id/tmFlightEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:inputType="time"
         app:layout_constraintBottom_toTopOf="@+id/txtlocation"
@@ -88,68 +85,17 @@
         app:layout_constraintStart_toEndOf="@+id/btnEndTime"
         app:layout_constraintTop_toBottomOf="@+id/tmFlightStart" />
 
-    <Button
-        android:id="@+id/btnLocation"
-        android:layout_width="136dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="13dp"
-        android:text="Location"
-        app:layout_constraintBottom_toBottomOf="@+id/txtlocation"
-        app:layout_constraintEnd_toStartOf="@+id/txtlocation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tmFlightEnd"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/txtlocation"
-        android:layout_width="204dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="39dp"
-        android:text="this is a test"
-        app:layout_constraintBottom_toTopOf="@+id/lblDrone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnLocation"
-        app:layout_constraintTop_toBottomOf="@+id/tmFlightEnd" />
-
     <TextView
         android:id="@+id/lblDrone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="12dp"
         android:text="Drone Flown"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/spDrone"
         app:layout_constraintStart_toStartOf="@+id/spDrone"
         app:layout_constraintTop_toBottomOf="@+id/txtlocation" />
-
-    <EditText
-        android:id="@+id/txtFlightNotes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="26dp"
-        android:ems="10"
-        android:hint="Enter any notes about the flight here"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblFlightNotes" />
-
-    <TextView
-        android:id="@+id/lblFlightNotes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Flight Notes"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtFlightNotes"
-        app:layout_constraintStart_toStartOf="@+id/txtFlightNotes"
-        app:layout_constraintTop_toBottomOf="@+id/spDrone" />
 
     <Spinner
         android:id="@+id/spDrone"
@@ -161,6 +107,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblDrone" />
 
+    <TextView
+        android:id="@+id/lblFlightNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="9dp"
+        android:text="Flight Notes"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtFlightNotes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spDrone" />
+
+    <EditText
+        android:id="@+id/txtFlightNotes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Enter any notes about the flight here"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblFlightNotes" />
+
     <Button
         android:id="@+id/btnSaveData"
         android:layout_width="wrap_content"
@@ -171,5 +146,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFlightNotes" />
+
+    <EditText
+        android:id="@+id/txtlocation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="Enter flight location"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/lblDrone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tmFlightEnd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

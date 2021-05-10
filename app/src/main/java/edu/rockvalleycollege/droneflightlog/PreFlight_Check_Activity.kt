@@ -29,7 +29,15 @@ class PreFlight_Check_Activity : AppCompatActivity() {
         val ckLeftRight = findViewById<CheckBox>(R.id.ckLeftRight)
         val ckUpDown = findViewById<CheckBox>(R.id.ckUpDown)
         val ckGimbalMovement = findViewById<CheckBox>(R.id.ckGimbalMovement)
+        val ckYawLeftRight = findViewById<CheckBox>(R.id.ckYawLeftRight)
         val btnSavePreflight = findViewById<Button>(R.id.btnSavePreflight)
+
+        var dtDate = ""
+        var tmStartTime = ""
+        var tmEndTime = ""
+        var txtLocation = ""
+        var txtFlightNotes = ""
+        var drone = ""
 
 
 
@@ -41,6 +49,7 @@ class PreFlight_Check_Activity : AppCompatActivity() {
             var propCheck = ""
             var leftRight = ""
             var upDown = ""
+            var yawLeftRight = ""
             var gimbalMovement = ""
 
             if (ckAppWorking.isChecked){ appWorking = "Checked"}
@@ -50,10 +59,11 @@ class PreFlight_Check_Activity : AppCompatActivity() {
             if (ckProp.isChecked){ propCheck = "Checked" }
             if (ckLeftRight.isChecked){ leftRight = "Checked" }
             if (ckUpDown.isChecked){ upDown = "Checked" }
+            if (ckYawLeftRight.isChecked){ yawLeftRight = "Checked"}
             if (ckGimbalMovement.isChecked){ gimbalMovement = "Checked" }
 
             //Save preflight checks to database
-            droneFlightLogDB.insertRowPREFLIGHT(appWorking, gimbalCheck, droneBattery, controllerBattery, propCheck, leftRight, upDown, gimbalMovement)
+            droneFlightLogDB.insertRowPREFLIGHT(dtDate, tmStartTime, tmEndTime, txtLocation, txtFlightNotes, drone,appWorking, gimbalCheck, droneBattery, controllerBattery, propCheck, leftRight, upDown, yawLeftRight, gimbalMovement)
 
             // reset all checkboxes to unchecked
             ckAppWorking.isChecked = false
@@ -63,6 +73,7 @@ class PreFlight_Check_Activity : AppCompatActivity() {
             ckProp.isChecked = false
             ckLeftRight.isChecked = false
             ckUpDown.isChecked = false
+            ckYawLeftRight.isChecked = false
             ckGimbalMovement.isChecked = false
 
             // let the user know data has been saved
