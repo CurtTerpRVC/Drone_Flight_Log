@@ -14,14 +14,16 @@
         android:text="Preflight Checks"
         app:layout_constraintBottom_toTopOf="@+id/btnCurrentFlight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnPastFlights"
         android:layout_width="195dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="17dp"
         android:text="Flight Log History"
+        app:layout_constraintBottom_toTopOf="@+id/btnPreferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCurrentFlight" />
@@ -30,20 +32,36 @@
         android:id="@+id/btnCurrentFlight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="329dp"
+        android:layout_marginBottom="16dp"
         android:text="Current Flight Log"
+        app:layout_constraintBottom_toTopOf="@+id/btnPastFlights"
         app:layout_constraintStart_toStartOf="@+id/btnPastFlights"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPreflight" />
 
     <Button
         android:id="@+id/btnPreferences"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginBottom="225dp"
         android:text="Preferences"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPastFlights" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPreflight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/droneflightlog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

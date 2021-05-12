@@ -110,6 +110,7 @@ class DFL_DB(context: Context, factory: SQLiteDatabase.CursorFactory?, DATABASE_
 
         val db = this.readableDatabase
         val etartTime = db.rawQuery("SELECT StartTime FROM $TABLE_NAME Where id = $lastRowIndex", null).toString()
+       
         db.close()
         return etartTime
     }
