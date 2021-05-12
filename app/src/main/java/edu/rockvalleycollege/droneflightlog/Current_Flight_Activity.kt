@@ -85,13 +85,14 @@ class Current_Flight_Activity : AppCompatActivity() {
             var drone = spDrone.selectedItem.toString()
 
             // this code keeps from erasing existing saves. It only looks for the end time
-            if(tmEndTime != ""){
+            if(tmEndTime != "" || lastRowInsert != 0){
                 droneFlightLogDB.updateRowFLIGHTLOG(dtDate, tmStartTime, tmEndTime, txtLocation, txtFlightNotes, drone)
                 Toast.makeText(this, "Data has been saved",Toast.LENGTH_LONG).show()
-            } else {
+            } else if (lastRowInsert == 0) {
+                Toast.makeText(this, "Please Save preflight checks before saving current flight",Toast.LENGTH_LONG).show()
+            } else if (tmEndTime == ""){
                 Toast.makeText(this,"Please enter a flight end time before saving",Toast.LENGTH_LONG).show()
             }
-
         }//end of onclick listener
 
         // Hide Keyboard

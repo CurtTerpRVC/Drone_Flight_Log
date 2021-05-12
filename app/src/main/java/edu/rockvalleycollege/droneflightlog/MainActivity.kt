@@ -20,8 +20,6 @@ const val TABLE_NAME = "flight_data"
 var lastRowInsert = 0
 
 
-
-
 class MainActivity : AppCompatActivity() {
 
     //var droneFlightLogDB = DFL_DB(this, null, DATABASE_NAME, DATABASE_VERSION)
@@ -39,13 +37,10 @@ class MainActivity : AppCompatActivity() {
         val btnPreflight = findViewById<Button>(R.id.btnPreflight)
         val btnPastFlight = findViewById<Button>(R.id.btnPastFlights)
 
-
         // On Click Listeners for all buttons
-
         btnPreferences.setOnClickListener {
 
             val intent = Intent(this, Preferences_Activity::class.java)
-
 
             //Go to Preferences activity
             startActivity(intent)
@@ -53,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         btnCurrentFlight.setOnClickListener {
             val intent = Intent(this, Current_Flight_Activity::class.java)
-
 
             //Go to Flight activity
             startActivity(intent)
@@ -63,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         btnPreflight.setOnClickListener {
             val intent = Intent(this, PreFlight_Check_Activity::class.java)
 
-
             //Go to Preflight activity
             startActivity(intent)
 
@@ -72,12 +65,10 @@ class MainActivity : AppCompatActivity() {
         btnPastFlight.setOnClickListener {
             val intent = Intent(this, Past_Flight_Activity::class.java)
 
-
             //Go to Past flight activity
             startActivity(intent)
 
         }
-
 
     }// end of Oncreate
 

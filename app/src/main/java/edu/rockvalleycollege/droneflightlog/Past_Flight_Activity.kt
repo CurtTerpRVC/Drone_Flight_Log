@@ -52,13 +52,9 @@ class Past_Flight_Activity : AppCompatActivity() {
 
         val cursor = droneFlightLogDB.getAllRow()
 
-        println("Record Count of cursor ${cursor?.count} Column Count is: ${cursor?.columnCount}")
-
         rvDFLData.layoutManager = LinearLayoutManager(this)
         dflAdapter = DflDataAdapter()
         rvDFLData.adapter = dflAdapter
-
-        println("Past Flight page end reached")
 
 
         btnExportPastFlight.setOnClickListener() {
