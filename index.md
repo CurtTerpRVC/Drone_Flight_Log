@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Welcome to Drone Flight Log
 
-You can use the [editor on GitHub](https://github.com/CurtTerpRVC/Drone_Flight_Log/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Do you fly a drone for fun or business? If you fly a drone once in a while, or fly every day, it is a good idea to have a flight log just in case the FAA comes calling because there was a complaint about you flying a drone. If you can prove that you were not flying the drone that day in the place of the complaint, you will help yourself from an intense investigation. But you need to prove that you are diligent in logging your flying.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+There are 3 main features of Drone Flight log. All three are accessible from the launch screen.
 
-### Markdown
+# Prefight Checks
+The purpose of logging your preflight checks is to show you have diligence in flying safely, and it is the starting point of saving your records in the database. You can any or all of the checks. I have included the checks that I do each time I go flying with my Drone. There are 2 sections of preflight checks. The first section is checking batteries, propeller attachments, gimbal covers etc. The second section are low level flight control checks. I use the automatic take off feature to a height of about 4 feet off the ground. That is where I check to make sure that all my flight inputs work correctly before I fly at any altitude.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Current flight log
+This is where you will enter the date of flight, the time you started the flight, the time the flight ended, the location of the flight takeoff/landing, the drone that you flew, and any other notes that you want to put in. 
 
-```markdown
-Syntax highlighted code block
+# Past Flight Log
+This has a place to export your flight log to a .csv file on your Android device.
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Features Planned for the future releases
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CurtTerpRVC/Drone_Flight_Log/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- Edit Drones - I was not able to implement a way to edit the drone list.
+- See past flight dates without exporting - I was unable to implement the display adapter so you could see a list of the dates of flights without exporting the database first.
+- Auto location - I had trouble implementing getting GPS coordinates for the location of your flight.
